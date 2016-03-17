@@ -7,7 +7,10 @@
  //setup for custom events
  socket.on("message", function(message) {
    console.log("New Message !");
-   console.log(message.text);
+   //console.log(message.text);
+   //insert it under container
+   var time = moment.utc(message.timestamp).local().format('h:mm a');
+   $(".messages").append('<p><strong>'+time+'</strong>' +' ' +message.text +'</p>');
  });
 
  // handles submitting of new message
